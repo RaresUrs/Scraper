@@ -18,8 +18,8 @@ public class Main {
         for (Product product : products) {
             totalPrice += product.getUnitPrice();
         }
-        String formattedTotalPrice = String.format("%.02f", totalPrice);
 
+        String.format("%.02f", totalPrice);
 
         Gson gsonBuilder = new GsonBuilder()
                 .setPrettyPrinting()

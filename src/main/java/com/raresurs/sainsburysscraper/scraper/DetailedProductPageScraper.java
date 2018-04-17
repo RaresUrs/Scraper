@@ -24,14 +24,15 @@ public class DetailedProductPageScraper extends Scrapper {
         NutritionalInformation nutritionalInformation = new NutritionalInformation();
         nutritionalInformation.setDescription(description);
         nutritionalInformation.setCalories(calories);
-
+        ;
         return nutritionalInformation;
     }
 
     private String getCalories(Elements elements) {
-        return elements
-                .get(1)
-                .getElementsByTag("table").next("tbody").text();
+        return elements.get(1).getElementsByTag("td").text().contains("kcal") ?
+                elements.get(1).getElementsByTag("td").text().substring(8, 14) :
+                elements.get(1).getElementsByTag("td").text();
+
     }
 
     private String getDescription(Elements elements) {
