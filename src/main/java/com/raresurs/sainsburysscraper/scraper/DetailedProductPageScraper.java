@@ -23,14 +23,16 @@ public class DetailedProductPageScraper extends Scrapper {
 
         NutritionalInformation nutritionalInformation = new NutritionalInformation();
         nutritionalInformation.setDescription(description);
+        nutritionalInformation.setCalories(calories);
+
         return nutritionalInformation;
     }
 
     private String getCalories(Elements elements) {
-        // todo: finish this
-        return "";
+        return elements
+                .get(1)
+                .getElementsByTag("table").next("tbody").text();
     }
-
 
     private String getDescription(Elements elements) {
         return elements.first()
