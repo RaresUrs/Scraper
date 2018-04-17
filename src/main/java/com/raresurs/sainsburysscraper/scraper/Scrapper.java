@@ -24,5 +24,4 @@ abstract class Scrapper {
     Document getDoc() {
         return doc.clone();
     }
-
 }

@@ -24,7 +24,7 @@ public class DetailedProductPageScraper extends Scrapper {
         NutritionalInformation nutritionalInformation = new NutritionalInformation();
         nutritionalInformation.setDescription(description);
         nutritionalInformation.setCalories(calories);
-        ;
+
         return nutritionalInformation;
     }
 
@@ -32,7 +32,6 @@ public class DetailedProductPageScraper extends Scrapper {
         return elements.get(1).getElementsByTag("td").text().contains("kcal") ?
                 elements.get(1).getElementsByTag("td").text().substring(8, 14) :
                 elements.get(1).getElementsByTag("td").text();
-
     }
 
     private String getDescription(Elements elements) {

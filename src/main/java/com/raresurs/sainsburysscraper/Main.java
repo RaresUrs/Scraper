@@ -20,6 +20,7 @@ public class Main {
         }
 
         String.format("%.02f", totalPrice);
+        // todo find a way to add the total price
 
         Gson gsonBuilder = new GsonBuilder()
                 .setPrettyPrinting()
