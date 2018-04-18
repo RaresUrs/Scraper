@@ -6,6 +6,7 @@ import com.raresurs.sainsburysscraper.model.Product;
 import com.raresurs.sainsburysscraper.scraper.ProductGridScraper;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 public class Main {
@@ -14,19 +15,22 @@ public class Main {
         ProductGridScraper scraper = new ProductGridScraper(args[0]);
         List<Product> products = scraper.getProducts();
 
+
         double totalPrice = 0;
         for (Product product : products) {
             totalPrice += product.getUnitPrice();
         }
 
         String.format("%.02f", totalPrice);
-        // todo find a way to add the total price
+
+        HashMap<String, List> result = new HashMap<>();
+        result.put("result", products);
 
         Gson gsonBuilder = new GsonBuilder()
                 .setPrettyPrinting()
                 .disableHtmlEscaping()
                 .create();
-        String serialisedProducts = gsonBuilder.toJson(products);
-        System.out.print(serialisedProducts);
+        String serialisedProducts = gsonBuilder.toJson(result);
+        System.out.println(serialisedProducts);
     }
 }
